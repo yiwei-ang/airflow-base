@@ -1,0 +1,25 @@
+apiVersion: airflow.kubebuilder.io/v1
+kind: AirflowInstance
+metadata:
+  name: airflow-dev
+spec:
+  executor: LocalExecutor
+  webserver:
+    service:
+      type: NodePort
+  scheduler:
+    replicas: 1
+  config:
+    AIRFLOW__CORE__FERNET_KEY: yourfernetkeyhere
+    AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+  dags:
+    persistence:
+      enabled: true
+      s3:
+        enabled: true
+        bucket: airflow-dev-yiwei
+        path: airflow/dags
+        endpoint: s3.amazonaws.com
+        connection:
+          secretName: airflow-s3-creds
+          key: connection

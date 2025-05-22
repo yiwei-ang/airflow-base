@@ -1,0 +1,13 @@
+apiVersion: airflow.kubebuilder.io/v1
+kind: AirflowInstance
+metadata:
+  name: airflow-dev
+spec:
+  executor: LocalExecutor
+  scheduler:
+    replicas: 1
+  webserver:
+    service:
+      type: NodePort
+  config:
+    AIRFLOW__CORE__FERNET_KEY: dummyfernetkey123

@@ -1,0 +1,6 @@
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/yiwei-ang/your-dag-repo.git
+    branch: main
+    subPath: dags

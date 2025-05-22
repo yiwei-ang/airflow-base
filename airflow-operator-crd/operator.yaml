@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow-operator
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: airflow-operator
+  template:
+    metadata:
+      labels:
+        name: airflow-operator
+    spec:
+      containers:
+        - name: controller
+          image: busybox
+          command: ["sleep", "3600"]
