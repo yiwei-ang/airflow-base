@@ -1,6 +1,6 @@
 dags:
   gitSync:
     enabled: true
-    repo: https://github.com/yiwei-ang/your-dag-repo.git
+    repo: https://github.com/yiwei-ang/airflow-base.git
     branch: main
     subPath: dags
